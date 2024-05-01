@@ -22,7 +22,7 @@ export default function App() {
     <div>
       <Description />
       <Options onClick={updateFeedback} />
-      <Feedback />
+      <Feedback goodValue={optionsObj.good} neutralValue={optionsObj.neutral} badValue={optionsObj.bad}/>
     </div>
   );
 }

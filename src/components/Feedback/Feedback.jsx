@@ -1,10 +1,6 @@
-import { useState } from "react";
-import css from "./Feedback.module.css";
+// import css from "./Feedback.module.css";
 
-export default function Feedback() {
-  const [goodValue, setGoodValue] = useState(0);
-  const [neutralValue, setNeutralValue] = useState(0);
-  const [badValue, setBadValue] = useState(0);
+export default function Feedback({goodValue, neutralValue, badValue}) {
 
   return (
     <div>
