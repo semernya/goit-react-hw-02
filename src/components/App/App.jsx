@@ -2,14 +2,16 @@ import { useState } from "react";
 import Description from "../Description/Description";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
+import Notification from "../Notification/Notification";
 import "./App.css";
-    
+
 export default function App() {
   const [optionsObj, setOptionsObj] = useState({
     good: 0,
     neutral: 0,
     bad: 0,
   });
+  const totalFeedback = optionsObj.good + optionsObj.neutral + optionsObj.bad;
 
   const updateFeedback = (feedbackType) => {
     setOptionsObj({
@@ -18,11 +20,27 @@ export default function App() {
     });
   };
 
+  // const resetFeedback = () => {
+  //   totalFeedback == 0;
+  // };
+
   return (
     <div>
       <Description />
-      <Options onClick={updateFeedback} />
-      <Feedback goodValue={optionsObj.good} neutralValue={optionsObj.neutral} badValue={optionsObj.bad}/>
+      <Options
+        feedbacksValue={totalFeedback}
+        onClick={updateFeedback}
+        // onReset={resetFeedback}
+      />
+      {totalFeedback == 0 ? (
+        <Notification />
+      ) : (
+        <Feedback
+          goodValue={optionsObj.good}
+          neutralValue={optionsObj.neutral}
+          badValue={optionsObj.bad}
+        />
+      )}
     </div>
   );
 }
