@@ -20,9 +20,7 @@ export default function App() {
     });
   };
 
-  // const resetFeedback = () => {
-  //   totalFeedback == 0;
-  // };
+
 
   return (
     <div>
@@ -30,12 +28,12 @@ export default function App() {
       <Options
         feedbacksValue={totalFeedback}
         onClick={updateFeedback}
-        // onReset={resetFeedback}
       />
       {totalFeedback == 0 ? (
         <Notification />
       ) : (
         <Feedback
+        feedbacksValue={totalFeedback}
           goodValue={optionsObj.good}
           neutralValue={optionsObj.neutral}
           badValue={optionsObj.bad}
