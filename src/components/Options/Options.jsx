@@ -1,7 +1,7 @@
 import css from "../Options/Options.module.css";
 import clsx from "clsx";
 
-export default function Options({ feedbacksValue, onClick }) {
+export default function Options({ feedbacksValue, onClick, onReset }) {
 
   return (
     <div>
@@ -16,6 +16,7 @@ export default function Options({ feedbacksValue, onClick }) {
       </button>
       <button
         type="button"
+        onClick={onReset}
         className={clsx(
           css.resetBtn,
           feedbacksValue == 0 ? css.isHidden : css.isDisplayed
